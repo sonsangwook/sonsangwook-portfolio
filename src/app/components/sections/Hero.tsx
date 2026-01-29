@@ -78,6 +78,9 @@ export function Hero() {
                     className="absolute top-0 right-0 w-1/2 h-full bg-black z-20"
                 />
 
+                {/* Hidden anchor for hash navigation - positioned at 55% to trigger animations correctly */}
+                <div id="about" className="absolute top-[55%] left-0 w-full h-px -translate-y-24 invisible" />
+
                 {/* Layer 3: Text Content (Appears on top of black curtains - Original Layout) */}
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-center">
                     <div className="space-y-12">
@@ -124,7 +127,6 @@ export function Hero() {
 
                         {/* Korean Translation (Reverted to original) */}
                         <motion.div
-                            id="about"
                             style={{ opacity: textOpacity, y: textY }}
                             className="max-w-2xl"
                         >
