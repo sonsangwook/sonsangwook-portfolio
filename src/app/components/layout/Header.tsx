@@ -4,7 +4,7 @@ import * as React from "react"
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 const navItems = [
     { name: "About", href: "#about" },
@@ -14,6 +14,7 @@ const navItems = [
 export function Header() {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const pathname = usePathname();
+    const router = useRouter();
     const isHomePage = pathname === "/";
 
     React.useEffect(() => {
@@ -33,7 +34,7 @@ export function Header() {
 
         // If not on home page, navigate to home page with hash
         if (!isHomePage && href.startsWith("#")) {
-            window.location.href = `/${href}`;
+            router.push(`/${href}`);
             return;
         }
 
