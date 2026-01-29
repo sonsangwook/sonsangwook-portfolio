@@ -154,7 +154,10 @@ export function SoftCells() {
             return () => {
                 window.removeEventListener('mousemove', onMouseMove);
                 window.removeEventListener('mouseleave', onMouseLeave);
-                app.destroy({ removeView: true });
+                if (app.canvas && app.canvas.parentElement) {
+                    app.canvas.parentElement.removeChild(app.canvas);
+                }
+                app.destroy();
             };
         };
 
