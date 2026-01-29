@@ -154,10 +154,11 @@ export function SoftCells() {
             return () => {
                 window.removeEventListener('mousemove', onMouseMove);
                 window.removeEventListener('mouseleave', onMouseLeave);
-                if (app.canvas && app.canvas.parentElement) {
-                    app.canvas.parentElement.removeChild(app.canvas);
+                const safeApp = app as any;
+                if (safeApp.canvas && safeApp.canvas.parentElement) {
+                    safeApp.canvas.parentElement.removeChild(safeApp.canvas);
                 }
-                app.destroy();
+                safeApp.destroy();
             };
         };
 
