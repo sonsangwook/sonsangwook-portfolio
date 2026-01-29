@@ -12,18 +12,13 @@ export function HashScrollHandler() {
                     if (attempts > 5) return;
 
                     const anchor = document.getElementById("about");
-                    // Fallback to manual calculation if anchor not found yet, but finding anchor is preferred
-                    if (anchor) {
-                        anchor.scrollIntoView({ behavior: "smooth", block: "start" });
-                    } else {
-                        // Fallback logic if anchor div is missing for some reason
-                        const heroSection = document.querySelector("#hero");
-                        if (heroSection) {
-                            const heroHeight = heroSection.clientHeight;
-                            const targetScroll = heroHeight * 0.55; // Match the 55% anchor position
-                            window.scrollTo({ top: targetScroll, behavior: "smooth" });
-                        }
-                    }
+                    // Calculate position: Anchor is at 55% of Hero.
+                    // Animation text appears 0.4-0.6. We want to be at ~0.6+
+                    // ScrollY = Progress * (SectionHeight - ViewportHeight)
+                    // But easiest is just to scroll specific VH amount.
+                    // Let's scroll to 1.35 * Viewport Height. (135vh)
+                    const vh = window.innerHeight;
+                    window.scrollTo({ top: vh * 1.35, behavior: "smooth" });
 
                     // Retry if not successful or just to ensure stickiness
                     setTimeout(() => attemptScroll(attempts + 1), 100);

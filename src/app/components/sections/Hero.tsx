@@ -98,7 +98,7 @@ export function Hero() {
                 <div id="about" className="absolute top-[55%] left-0 w-full h-px -translate-y-24 invisible" />
 
                 {/* Layer 3: Text Content (Appears on top of black curtains - Original Layout) */}
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-center">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-center pt-24 md:pt-32">
                     <div className="space-y-12">
                         {/* Main English Text (Reverted to original left-aligned dispersing text) */}
                         <motion.div

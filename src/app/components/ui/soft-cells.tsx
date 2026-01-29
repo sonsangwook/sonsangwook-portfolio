@@ -1,6 +1,6 @@
 "use client";
 
 export function SoftCells() {
-    // Temporarily disabled to allow deployment
-    return <div className="absolute inset-0 -z-10 w-full h-full bg-slate-50 opacity-20" />;
+    // Temporarily disabled to allow deployment - returning null to keep dark theme intact
+    return null;
 }
