@@ -13,12 +13,12 @@ export function HashScrollHandler() {
 
                     const anchor = document.getElementById("about");
                     // Calculate position: Anchor is at 55% of Hero.
-                    // Animation text appears 0.4-0.6. We want to be at ~0.6+
-                    // ScrollY = Progress * (SectionHeight - ViewportHeight)
-                    // But easiest is just to scroll specific VH amount.
-                    // Let's scroll to 1.35 * Viewport Height. (135vh)
+                    // Animation text appears 0.4-0.6. We want to be at ~0.6+ (opacity 1)
+                    // Scroll at 1.35 only gives ~0.45 progress (dark).
+                    // We need > 0.6 * 300vh = 1.8vh.
+                    // Let's scroll to 2.0 * Viewport Height to be safe and fully bright.
                     const vh = window.innerHeight;
-                    window.scrollTo({ top: vh * 1.35, behavior: "smooth" });
+                    window.scrollTo({ top: vh * 2.0, behavior: "smooth" });
 
                     // Retry if not successful or just to ensure stickiness
                     setTimeout(() => attemptScroll(attempts + 1), 100);
