@@ -61,7 +61,7 @@ export function Hero() {
                             >
                                 Simplify, Move fast, Deliver
                             </div>
-                            <div className="text-[1.25rem] md:text-[1.5rem] lg:text-[1.75rem] font-sans text-[#575757] text-center">
+                            <div className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-sans text-[#575757] text-center">
                                 문제를 단순화하고, 빠르게 움직여, 결과를 만듭니다.
                             </div>
                         </div>
