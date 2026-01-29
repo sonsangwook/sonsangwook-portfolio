@@ -89,7 +89,7 @@ export function Header() {
         >
             <div className="container mx-auto px-4 md:px-6 h-24 flex items-center justify-between max-w-screen-xl">
                 <Link href="/" className={`text-xl font-bold tracking-tighter transition-colors ${textColors}`}>
-                    SANGWOOK.SON
+                    SSW
                 </Link>
 
                 <nav className="flex items-center gap-8">
