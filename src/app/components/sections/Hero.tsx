@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { DispersingText } from "@/app/components/ui/dispersing-text"
 import { CursorFollower } from "@/app/components/ui/cursor-follower"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 
 export function Hero() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -11,6 +11,18 @@ export function Hero() {
         target: containerRef,
         offset: ["start start", "end start"],
     })
+
+    const [isNavigatingToAbout, setIsNavigatingToAbout] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.location.hash === '#about') {
+            setIsNavigatingToAbout(true);
+            const timer = setTimeout(() => {
+                setIsNavigatingToAbout(false);
+            }, 800);
+            return () => clearTimeout(timer);
+        }
+    }, []);
 
     // 1. Curtain Animation (Closes from sides)
     // 0 to 0.4 progress: Curtains close
@@ -29,6 +41,10 @@ export function Hero() {
         // Outer container for scroll distance (300vh = 3 screens worth of scroll)
         <section ref={containerRef} id="hero" className="h-[300vh] relative cursor-none bg-black">
             <CursorFollower />
+            {/* Transition Overlay to hide video flash on hash navigation */}
+            {isNavigatingToAbout && (
+                <div className="fixed inset-0 bg-black z-[9999] pointer-events-none" />
+            )}
 
             {/* Sticky Container */}
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
