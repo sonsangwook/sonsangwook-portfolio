@@ -154,7 +154,7 @@ export function SoftCells() {
             return () => {
                 window.removeEventListener('mousemove', onMouseMove);
                 window.removeEventListener('mouseleave', onMouseLeave);
-                app.destroy(true, { children: true, texture: true, baseTexture: true });
+                app.destroy(true, { children: true, texture: true });
             };
         };
 
