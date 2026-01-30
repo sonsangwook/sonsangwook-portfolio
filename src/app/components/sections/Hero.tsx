@@ -39,7 +39,7 @@ export function Hero() {
 
     return (
         // Outer container for scroll distance (300vh = 3 screens worth of scroll)
-        <section ref={containerRef} id="hero" className="h-[300vh] relative cursor-none bg-black">
+        <section ref={containerRef} id="hero" className="h-[450vh] relative cursor-none bg-black">
             <CursorFollower />
             {/* Transition Overlay to hide video flash on hash navigation */}
             {isNavigatingToAbout && (
@@ -98,7 +98,7 @@ export function Hero() {
                 <div id="about" className="absolute top-[55%] left-0 w-full h-px -translate-y-24 invisible" />
 
                 {/* Layer 3: Text Content (Appears on top of black curtains - Original Layout) */}
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-start pt-64 md:pt-80">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-start pt-32 md:pt-40">
                     <div className="space-y-12">
                         {/* Main English Text (Reverted to original left-aligned dispersing text) */}
                         <motion.div
