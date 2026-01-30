@@ -34,8 +34,12 @@ export function Hero() {
     const textOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1])
     const textY = useTransform(scrollYProgress, [0.4, 0.6], [20, 0])
 
-    // 3. Optional: Background scale effect
+    // 3. Background scale effect
     const bgScale = useTransform(scrollYProgress, [0, 0.4], [1, 1.1])
+
+    // 4. Parallax Scroll for proper visibility on small screens
+    // As user scrolls past 60%, move the text container up to reveal bottom content
+    const contentParallaxY = useTransform(scrollYProgress, [0.6, 0.9], ["0vh", "-30vh"])
 
     return (
         // Outer container for scroll distance (300vh = 3 screens worth of scroll)
@@ -98,7 +102,10 @@ export function Hero() {
                 <div id="about" className="absolute top-[55%] left-0 w-full h-px -translate-y-24 invisible" />
 
                 {/* Layer 3: Text Content (Appears on top of black curtains - Original Layout) */}
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-start pt-32 md:pt-40">
+                <motion.div
+                    style={{ y: contentParallaxY }}
+                    className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-start pt-32 md:pt-40"
+                >
                     <div className="space-y-12">
                         {/* Main English Text (Reverted to original left-aligned dispersing text) */}
                         <motion.div
@@ -191,11 +198,10 @@ export function Hero() {
                                     검증하고, MVP를 빠르게 설계·실행하며 데이터
                                     기반으로 반복 개선합니다.
                                 </p>
-                            </div>
                         </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </div>
-        </section >
+        </section>
     )
 }
