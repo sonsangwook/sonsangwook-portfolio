@@ -39,7 +39,7 @@ export function Hero() {
 
     return (
         // Outer container for scroll distance (300vh = 3 screens worth of scroll)
-        <section ref={containerRef} id="hero" className="h-[450vh] relative cursor-none bg-black">
+        <section ref={containerRef} id="hero" className="h-[600vh] relative cursor-none bg-black">
             <CursorFollower />
             {/* Transition Overlay to hide video flash on hash navigation */}
             {isNavigatingToAbout && (
