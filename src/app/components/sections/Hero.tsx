@@ -198,6 +198,7 @@ export function Hero() {
                                     검증하고, MVP를 빠르게 설계·실행하며 데이터
                                     기반으로 반복 개선합니다.
                                 </p>
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>
