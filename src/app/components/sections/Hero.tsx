@@ -67,7 +67,7 @@ export function Hero() {
                     <div className="absolute inset-0 flex items-center justify-center z-10">
                         <div className="flex flex-col items-center gap-4">
                             <div
-                                className="text-[3rem] md:text-[4.5rem] lg:text-[5.25rem] font-display font-bold text-center leading-tight"
+                                className="text-[2.4rem] md:text-[3.6rem] lg:text-[4.2rem] font-display font-bold text-center leading-tight"
                                 style={{
                                     background: 'linear-gradient(to right, #3F8FF0, #CC5DD9, #E25F2B)',
                                     WebkitBackgroundClip: 'text',
