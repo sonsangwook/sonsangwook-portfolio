@@ -17,16 +17,23 @@ export function HashScrollHandler() {
                 const attemptScroll = (attempts = 0) => {
                     if (attempts > 5) return;
 
-                    const hero = document.getElementById("hero");
+                    const vh = window.innerHeight;
+                    const isMobile = window.innerWidth < 768;
                     let targetTop = 0;
 
-                    if (hero) {
-                        // Hero is 600vh. Text appears 0.4-0.6. Target 0.62 to be fully visible (white).
-                        targetTop = hero.clientHeight * 0.62;
+                    if (isMobile) {
+                        // Mobile: Use fixed vh calculation for reliability
+                        // Hero is 600vh, text fully visible at 60%+
+                        // Target 3.8vh to ensure white text is visible
+                        targetTop = vh * 3.8;
                     } else {
-                        // Fallback: 0.6 * 600vh = 3.6vh. Use 3.7 to be safe.
-                        const vh = window.innerHeight;
-                        targetTop = vh * 3.7;
+                        // Desktop: Use element height calculation
+                        const hero = document.getElementById("hero");
+                        if (hero) {
+                            targetTop = hero.clientHeight * 0.62;
+                        } else {
+                            targetTop = vh * 3.7;
+                        }
                     }
 
                     window.scrollTo({ top: targetTop, behavior: "smooth" });
