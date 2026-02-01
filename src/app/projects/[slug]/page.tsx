@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <h1 className="text-[24px] font-display font-bold tracking-tight text-black leading-tight text-balance">
                             {project.title}
                         </h1>
-                        <p className="text-[18px] text-black leading-relaxed font-light whitespace-pre-line break-keep">
+                        <p className="text-[18px] text-black leading-relaxed font-light whitespace-pre-line break-keep text-pretty">
                             {project.description}
                         </p>
                     </div>
@@ -117,7 +117,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                             <h2 className="text-[14px] font-bold text-[#212121] lowercase tracking-wide">01 background</h2>
                         </div>
                         <div className="prose prose-neutral dark:prose-invert max-w-none">
-                            <p className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep">
+                            <p className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep text-pretty">
                                 {project.background}
                             </p>
                         </div>
@@ -151,7 +151,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
                         <div className="prose prose-neutral dark:prose-invert max-w-none">
                             <p
-                                className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep"
+                                className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep text-pretty"
                                 dangerouslySetInnerHTML={{ __html: parseMarkdownBold(project.problem) }}
                             />
                         </div>
@@ -183,7 +183,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
                         <div className="prose prose-neutral dark:prose-invert max-w-none">
                             <p
-                                className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep"
+                                className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep text-pretty"
                                 dangerouslySetInnerHTML={{ __html: parseMarkdownBold(project.solution) }}
                             />
                         </div>
@@ -222,7 +222,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                                             </h4>
                                         </div>
                                         <div className="prose prose-neutral dark:prose-invert max-w-none">
-                                            <p className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep">
+                                            <p className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep text-pretty">
                                                 {detail.description}
                                             </p>
                                         </div>
@@ -262,7 +262,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         </div>
 
                         <div className="prose prose-neutral dark:prose-invert max-w-none">
-                            <p className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep">
+                            <p className="text-[16px] leading-relaxed text-black whitespace-pre-line break-keep text-pretty">
                                 {project.result}
                             </p>
                         </div>
