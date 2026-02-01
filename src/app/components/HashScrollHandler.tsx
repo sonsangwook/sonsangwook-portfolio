@@ -17,14 +17,19 @@ export function HashScrollHandler() {
                 const attemptScroll = (attempts = 0) => {
                     if (attempts > 5) return;
 
-                    const anchor = document.getElementById("about");
-                    // Calculate position: Anchor is at 55% of Hero.
-                    // Animation text appears 0.4-0.6. We want to be at ~0.6+ (opacity 1)
-                    // Scroll at 1.35 only gives ~0.45 progress (dark).
-                    // We need > 0.6 * 300vh = 1.8vh.
-                    // Let's scroll to 2.0 * Viewport Height to be safe and fully bright.
-                    const vh = window.innerHeight;
-                    window.scrollTo({ top: vh * 2.0, behavior: "smooth" });
+                    const hero = document.getElementById("hero");
+                    let targetTop = 0;
+
+                    if (hero) {
+                        // Hero is 600vh. Text appears 0.4-0.6. Target 0.62 to be fully visible (white).
+                        targetTop = hero.clientHeight * 0.62;
+                    } else {
+                        // Fallback: 0.6 * 600vh = 3.6vh. Use 3.7 to be safe.
+                        const vh = window.innerHeight;
+                        targetTop = vh * 3.7;
+                    }
+
+                    window.scrollTo({ top: targetTop, behavior: "smooth" });
 
                     // Retry if not successful or just to ensure stickiness
                     setTimeout(() => attemptScroll(attempts + 1), 100);
