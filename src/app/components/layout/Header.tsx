@@ -88,7 +88,7 @@ export function Header() {
             animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-            <div className="container mx-auto px-4 md:px-6 h-24 flex items-center justify-between max-w-screen-xl">
+            <div className="container mx-auto px-4 md:px-6 h-16 md:h-24 flex items-center justify-between max-w-screen-xl">
                 <Link href="/" className={`text-xl font-bold tracking-tighter transition-colors ${textColors}`}>
                     SSW
                 </Link>
