@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { Header } from "@/app/components/layout/Header"
 import Image from "next/image"
 import Link from "next/link"
+import { ZoomableImage } from "@/app/components/ui/zoomable-image"
 
 // Simple markdown to HTML converter for bold text
 function parseMarkdownBold(text: string) {
@@ -43,7 +44,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <div className="space-y-4 mb-16">
                         {project.images.heroes.map((heroSrc, index) => (
                             <div key={index} className="relative aspect-[16/9] w-full bg-muted overflow-hidden">
-                                <Image
+                                <ZoomableImage
                                     src={heroSrc}
                                     alt={`Hero Image ${index + 1}`}
                                     fill
@@ -59,7 +60,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     // Fallback to Single Hero Image
                     project.images?.hero1 && (
                         <div className="relative aspect-[16/9] w-full bg-muted overflow-hidden mb-16">
-                            <Image
+                            <ZoomableImage
                                 src={project.images.hero1}
                                 alt="Hero Image"
                                 fill
@@ -128,7 +129,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <div className="mt-12 space-y-8">
                             {project.images.backgroundImages.map((imgSrc, index) => (
                                 <div key={index} className="relative aspect-video w-full bg-muted overflow-hidden">
-                                    <Image
+                                    <ZoomableImage
                                         src={imgSrc}
                                         alt={`Background Image ${index + 1}`}
                                         fill
@@ -162,7 +163,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <div className="mt-12 space-y-8">
                             {project.images.problem.map((imgSrc, index) => (
                                 <div key={index} className="relative aspect-video w-full bg-muted overflow-hidden">
-                                    <Image
+                                    <ZoomableImage
                                         src={imgSrc}
                                         alt={`Problem Image ${index + 1}`}
                                         fill
@@ -194,7 +195,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <div className="mt-12 space-y-8">
                             {project.images.solution.map((imgSrc, index) => (
                                 <div key={index} className="relative aspect-video w-full bg-muted overflow-hidden">
-                                    <Image
+                                    <ZoomableImage
                                         src={imgSrc}
                                         alt={`Solution Image ${index + 1}`}
                                         fill
@@ -233,7 +234,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                                         <div className="space-y-8 w-full max-w-[1136px] mt-[40px]">
                                             {detail.images.map((imgSrc, imgIndex) => (
                                                 <div key={imgIndex} className="relative aspect-video w-full bg-muted overflow-hidden">
-                                                    <Image
+                                                    <ZoomableImage
                                                         src={imgSrc}
                                                         alt={`${detail.title} - Image ${imgIndex + 1}`}
                                                         fill
@@ -273,7 +274,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <div className="mt-12 space-y-8">
                             {project.images.result.map((imgSrc, index) => (
                                 <div key={index} className="relative aspect-video w-full bg-muted overflow-hidden">
-                                    <Image
+                                    <ZoomableImage
                                         src={imgSrc}
                                         alt={`Result Image ${index + 1}`}
                                         fill
