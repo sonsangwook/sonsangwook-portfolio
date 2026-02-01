@@ -51,7 +51,7 @@ export function Hero() {
             )}
 
             {/* Sticky Container */}
-            <div className="sticky top-0 h-[100vh] w-full overflow-hidden flex items-center justify-center bg-black">
+            <div className="sticky top-0 h-[100vh] supports-[height:100dvh]:h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-black">
 
                 {/* Layer 1: Video Background (Local File) + Product Designer Text */}
                 <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0 flex items-center justify-center">
