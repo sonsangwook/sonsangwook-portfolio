@@ -22,17 +22,16 @@ export function HashScrollHandler() {
                     let targetTop = 0;
 
                     if (isMobile) {
-                        // Mobile: Use fixed vh calculation for reliability
-                        // Hero is 600vh, text fully visible at 60%+
-                        // Target 3.8vh to ensure white text is visible
-                        targetTop = vh * 3.8;
+                        // Mobile: Hero is 600vh tall. Text is fully visible at 60%+ progress.
+                        // Progress 0.65 = scroll to 65% of 600vh = 390vh
+                        targetTop = vh * 390;
                     } else {
                         // Desktop: Use element height calculation
                         const hero = document.getElementById("hero");
                         if (hero) {
-                            targetTop = hero.clientHeight * 0.62;
+                            targetTop = hero.clientHeight * 0.65;
                         } else {
-                            targetTop = vh * 3.7;
+                            targetTop = vh * 390;
                         }
                     }
 
