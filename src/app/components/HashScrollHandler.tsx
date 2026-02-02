@@ -13,16 +13,15 @@ export function HashScrollHandler() {
         const handleHashChange = () => {
             const hash = window.location.hash;
             if (hash === "#about") {
-                // Let browser handle the scroll to the anchor element
+                // Wait longer for Hero to fully render, then scroll to 65% (text fully visible)
                 setTimeout(() => {
-                    const anchor = document.getElementById("about");
-                    if (anchor) {
-                        anchor.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
+                    const heroSection = document.getElementById("hero");
+                    if (heroSection) {
+                        const heroHeight = heroSection.clientHeight;
+                        const targetScroll = heroHeight * 0.65;
+                        window.scrollTo({ top: targetScroll, behavior: "smooth" });
                     }
-                }, 100);
+                }, 500);
             } else if (hash === "#projects") {
                 setTimeout(() => {
                     const element = document.querySelector(hash);
