@@ -23,16 +23,16 @@ export function HashScrollHandler() {
 
                     if (isMobile) {
                         // Mobile: Hero is 600vh tall = 6 viewports tall
-                        // Text is fully visible at 60% progress
-                        // 60% of 6 viewports = 3.6 viewports
-                        targetTop = vh * 3.6;
+                        // #about anchor is at 55% of Hero (see Hero.tsx line 102)
+                        // 55% of 6 viewports = 3.3 viewports
+                        targetTop = vh * 3.3;
                     } else {
                         // Desktop: Use element height calculation
                         const hero = document.getElementById("hero");
                         if (hero) {
-                            targetTop = hero.clientHeight * 0.60;
+                            targetTop = hero.clientHeight * 0.55;
                         } else {
-                            targetTop = vh * 3.6;
+                            targetTop = vh * 3.3;
                         }
                     }
 
