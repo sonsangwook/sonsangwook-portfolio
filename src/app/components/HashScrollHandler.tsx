@@ -22,17 +22,17 @@ export function HashScrollHandler() {
                     let targetTop = 0;
 
                     if (isMobile) {
-                        // Mobile: Hero is 600vh tall = 6 viewports tall
-                        // #about anchor is at 55% of Hero (see Hero.tsx line 102)
-                        // 55% of 6 viewports = 3.3 viewports
-                        targetTop = vh * 3.3;
+                        // Mobile: Hero is 600vh tall = window.innerHeight × 600
+                        // Text starts appearing at 40% progress (textOpacity: [0.4, 0.6])
+                        // 40% of 600 = 240
+                        targetTop = vh * 240;
                     } else {
                         // Desktop: Use element height calculation
                         const hero = document.getElementById("hero");
                         if (hero) {
-                            targetTop = hero.clientHeight * 0.55;
+                            targetTop = hero.clientHeight * 0.40;
                         } else {
-                            targetTop = vh * 3.3;
+                            targetTop = vh * 240;
                         }
                     }
 

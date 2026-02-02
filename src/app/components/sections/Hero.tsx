@@ -54,13 +54,13 @@ export function Hero() {
             <div className="sticky top-0 h-[100vh] supports-[height:100dvh]:h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-black">
 
                 {/* Layer 1: Video Background (Local File) + Product Designer Text */}
-                <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0 flex items-center justify-center">
+                <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
                     <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                     >
                         <source src="/images/bokeh_gradient_shape_stack_remix_remix.mp4" type="video/mp4" />
                         {/* Fallback if video fails */}
