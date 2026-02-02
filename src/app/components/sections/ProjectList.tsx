@@ -7,7 +7,7 @@ import { Project } from "@/app/data/projects"
 
 export function ProjectList({ projects }: { projects: Project[] }) {
     return (
-        <section id="projects" className="-mt-20 pb-16 bg-black text-white relative z-50">
+        <section id="projects" className="-mt-32 pb-16 bg-black text-white relative z-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1280px]">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

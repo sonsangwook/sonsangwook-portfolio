@@ -19,7 +19,7 @@ export function HashScrollHandler() {
                     if (anchor) {
                         anchor.scrollIntoView({
                             behavior: "smooth",
-                            block: "start"
+                            block: "center"
                         });
                     }
                 }, 100);
