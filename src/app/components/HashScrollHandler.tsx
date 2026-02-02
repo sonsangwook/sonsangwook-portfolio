@@ -13,36 +13,15 @@ export function HashScrollHandler() {
         const handleHashChange = () => {
             const hash = window.location.hash;
             if (hash === "#about") {
-                // Retry finding element to account for layout shifts
-                const attemptScroll = (attempts = 0) => {
-                    if (attempts > 5) return;
-
-                    const vh = window.innerHeight;
-                    const isMobile = window.innerWidth < 768;
-                    let targetTop = 0;
-
-                    if (isMobile) {
-                        // Mobile: Hero is 600vh tall = window.innerHeight × 600
-                        // Text starts appearing at 40% progress (textOpacity: [0.4, 0.6])
-                        // 40% of 600 = 240
-                        targetTop = vh * 240;
-                    } else {
-                        // Desktop: Use element height calculation
-                        const hero = document.getElementById("hero");
-                        if (hero) {
-                            targetTop = hero.clientHeight * 0.40;
-                        } else {
-                            targetTop = vh * 240;
-                        }
+                // Use exact same logic as Header.tsx
+                setTimeout(() => {
+                    const heroSection = document.getElementById("hero");
+                    if (heroSection) {
+                        const heroHeight = heroSection.clientHeight;
+                        const targetScroll = heroHeight * 0.6;
+                        window.scrollTo({ top: targetScroll, behavior: "smooth" });
                     }
-
-                    window.scrollTo({ top: targetTop, behavior: "smooth" });
-
-                    // Retry if not successful or just to ensure stickiness
-                    setTimeout(() => attemptScroll(attempts + 1), 100);
-                };
-
-                attemptScroll();
+                }, 100);
             } else if (hash === "#projects") {
                 setTimeout(() => {
                     const element = document.querySelector(hash);
