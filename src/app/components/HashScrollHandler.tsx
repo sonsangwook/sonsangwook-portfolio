@@ -13,13 +13,14 @@ export function HashScrollHandler() {
         const handleHashChange = () => {
             const hash = window.location.hash;
             if (hash === "#about") {
-                // Use exact same logic as Header.tsx
+                // Let browser handle the scroll to the anchor element
                 setTimeout(() => {
-                    const heroSection = document.getElementById("hero");
-                    if (heroSection) {
-                        const heroHeight = heroSection.clientHeight;
-                        const targetScroll = heroHeight * 0.6;
-                        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+                    const anchor = document.getElementById("about");
+                    if (anchor) {
+                        anchor.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
                     }
                 }, 100);
             } else if (hash === "#projects") {
