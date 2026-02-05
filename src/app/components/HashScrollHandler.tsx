@@ -32,9 +32,8 @@ export function HashScrollHandler() {
             }
         };
 
-        handleHashChange(); // Run on mount
-
-        // Listen for hash changes if user navigates within page
+        // Only listen for hash CHANGES - don't scroll on initial mount
+        // This ensures page always starts at top
         window.addEventListener('hashchange', handleHashChange);
         return () => window.removeEventListener('hashchange', handleHashChange);
     }, []);
