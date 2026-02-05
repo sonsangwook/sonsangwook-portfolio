@@ -50,8 +50,8 @@ export function Hero() {
                 <div className="fixed inset-0 bg-black z-[9999] pointer-events-none" />
             )}
 
-            {/* Sticky Container */}
-            <div className="sticky top-0 h-[100vh] supports-[height:100dvh]:h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-black">
+            {/* Sticky Container - overflow visible for text content */}
+            <div className="sticky top-0 h-screen w-full flex items-center justify-center bg-black">
 
                 {/* Layer 1: Video Background (Local File) + Product Designer Text */}
                 <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
@@ -101,10 +101,10 @@ export function Hero() {
                 {/* Hidden anchor for hash navigation - positioned at 70% to land at text section */}
                 <div id="about" className="absolute top-[70%] left-0 w-full h-px -translate-y-24 invisible" />
 
-                {/* Layer 3: Text Content (Appears on top of black curtains - Original Layout) */}
+                {/* Layer 3: Text Content (Appears on top of black curtains) */}
                 <motion.div
                     style={{ y: contentParallaxY }}
-                    className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-30 h-full flex flex-col justify-start pt-32 md:pt-40"
+                    className="container mx-auto px-4 lg:px-8 max-w-screen-xl relative z-30 flex flex-col justify-start pt-40 pb-20"
                 >
                     <div className="space-y-12">
                         {/* Main English Text (Reverted to original left-aligned dispersing text) */}
