@@ -7,8 +7,8 @@ import { motion } from "framer-motion"
 import { usePathname, useRouter } from "next/navigation"
 
 const navItems = [
-    { name: "About", href: "#about" },
     { name: "Works", href: "#projects" },
+    { name: "Resume", href: "/resume" },
 ]
 
 export function Header() {
@@ -16,6 +16,8 @@ export function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const isHomePage = pathname === "/";
+    const isResumePage = pathname === "/resume";
+    const isDarkPage = isHomePage || isResumePage;
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -32,8 +34,21 @@ export function Header() {
             return;
         }
 
+        // Handle internal routes (like /resume)
+        if (href.startsWith("/")) {
+            router.push(href);
+            return;
+        }
+
+        // If on resume page and clicking About/Works, go home with hash
+        // (Since Resume doesn't have these sections)
+        if (isResumePage && href.startsWith("#")) {
+            router.push(`/${href}`);
+            return;
+        }
+
         // If not on home page, navigate to home page with hash
-        if (!isHomePage && href.startsWith("#")) {
+        if (!isHomePage && href.startsWith("#") && !isResumePage) {
             router.push(`/${href}`);
             return;
         }
@@ -57,29 +72,30 @@ export function Header() {
 
     // Header Style Logic
     // Scrolled:
-    // - Home: Dark gradient fade? Or just darker background? User said "Home screen is white shadow" -> interpreted as White Text on Dark BG, maybe shadow on text?
-    //   But request 2 says: "Home screen is white shadow, Work works are white background so black shadow".
-    //   "White Shadow" on Home (Dark BG) usually means a glow.
-    //   "Black Shadow" on Work (Light BG) is standard.
-    //   AND "Not just cut off, but gradient shadow".
-    //
-    // Implementation:
-    // Home (isHomePage):
-    //   - Scrolled: bg-gradient-to-b from-black/80 to-transparent (Dark fade) + shadow-[0_4px_30px_rgba(255,255,255,0.1)] (White glow for contrast?) roughly.
-    // Work (!isHomePage):
-    //   - Scrolled: bg-gradient-to-b from-white/95 to-transparent (White fade) + shadow-sm (Black shadow).
+    // - Dark Page (Home, Resume): Dark gradient + White glow logic
+    // - Light Page (Projects): White bg + Black shadow
 
     const headerClasses = isScrolled
-        ? isHomePage
-            ? "bg-gradient-to-b from-black via-black/50 to-transparent shadow-[0_4px_20px_rgba(255,255,255,0.05)] backdrop-blur-sm" // Home Scrolled - smoother gradient
+        ? isDarkPage
+            ? "bg-gradient-to-b from-black via-black/50 to-transparent shadow-[0_4px_20px_rgba(255,255,255,0.05)] backdrop-blur-sm" // Dark Scrolled
             : "bg-white shadow-sm" // Work Scrolled - Solid white background
         : "mix-blend-difference"; // Top state
 
     const textColors = isScrolled
-        ? isHomePage
+        ? isDarkPage
             ? "text-white"
             : "text-foreground"
         : "text-white";
+
+    const navItemClasses = (active: boolean) =>
+        isScrolled && !isDarkPage
+            ? "text-muted-foreground hover:text-foreground"
+            : "text-white/70 hover:text-white";
+
+    const navLineClasses = (active: boolean) =>
+        isScrolled && !isDarkPage
+            ? "bg-foreground"
+            : "bg-white";
 
     return (
         <motion.header
@@ -98,10 +114,10 @@ export function Header() {
                         <button
                             key={item.name}
                             onClick={() => scrollToSection(item.href)}
-                            className={`text-sm font-medium transition-colors relative group ${isScrolled && !isHomePage ? "text-muted-foreground hover:text-foreground" : "text-white/70 hover:text-white"}`}
+                            className={`text-sm font-medium transition-colors relative group ${navItemClasses(false)}`}
                         >
                             {item.name}
-                            <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all group-hover:w-full ${isScrolled && !isHomePage ? "bg-foreground" : "bg-white"}`} />
+                            <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all group-hover:w-full ${navLineClasses(false)}`} />
                         </button>
                     ))}
                 </nav>
