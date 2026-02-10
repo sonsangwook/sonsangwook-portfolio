@@ -74,7 +74,7 @@ export default function ResumePage() {
                                             </>
                                         )}
                                     </div>
-                                    <p className="text-white/60 leading-relaxed text-pretty break-keep">{exp.description}</p>
+                                    <p className="text-white/60 leading-relaxed text-pretty break-keep whitespace-pre-line">{exp.description}</p>
                                 </div>
                             ))}
                         </div>
