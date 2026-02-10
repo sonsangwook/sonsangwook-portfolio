@@ -183,7 +183,7 @@ export function Hero() {
                                     끝까지 책임지는<br />오너십과 리더십
                                 </h3>
                                 <p className="text-[20px] text-white/60 leading-relaxed break-keep">
-                                    역할의 경계를 두지 않고 PM·영업까지 맡아
+                                    역할의 경계를 두지 않고 PM, 비즈니스 제안까지 맡아
                                     문제를 해결하며, 프로젝트의 시작부터 성과까지 끝까지 책임집니다.
                                 </p>
                             </div>
