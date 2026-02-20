@@ -79,7 +79,7 @@ export function Header() {
         ? isDarkPage
             ? "bg-gradient-to-b from-black via-black/50 to-transparent shadow-[0_4px_20px_rgba(255,255,255,0.05)] backdrop-blur-sm" // Dark Scrolled
             : "bg-white shadow-sm" // Work Scrolled - Solid white background
-        : "mix-blend-difference"; // Top state
+        : ""; // Top state - always white fill
 
     const textColors = isScrolled
         ? isDarkPage
